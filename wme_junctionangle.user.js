@@ -1,14 +1,14 @@
-// ==UserScript==
-// @name				WME Junction Angle Info (development version)
-// @namespace			https://github.com/milkboy/WME-ja
-// @description			Show the angle between two selected (and connected) segments
-// @include				/^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor\/.*$/
-// @updateURL			https://github.com/milkboy/WME-ja/raw/development/wme_junctionangle.user.js
-// @version				1.13
-// @grant				none
-// @copyright			2016 Michael Wikberg <waze@wikberg.fi>
-// @license				CC-BY-NC-SA
-// @icon				data:image/png;base64,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
+﻿// ==UserScript==
+// @name          WME Junction Angle Info
+// @namespace     https://github.com/milkboy/WME-ja
+// @description   Show the angle between two selected (and connected) segments
+// @include       /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor\/.*$/
+// @updateURL     https://github.com/milkboy/WME-ja/raw/master/wme_junctionangle.user.js
+// @version       1.13.3
+// @grant         none
+// @copyright     2016 Michael Wikberg <waze@wikberg.fi>
+// @license       CC-BY-NC-SA
+// @icon          data:image/png;base64,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
 // ==/UserScript==
 
 /**
@@ -23,6 +23,9 @@
  *	2015 "FZ69617" <?>
  *	2015 "wlodek76" <?>
  *	2016 Sergey Kuznetsov "WazeRus" <sergey@izhevsk.pro> (Russian translation)
+ *	2016 "MajkiiTelini" <?> Czech translation
+ *	2016 "witoco" <?> (Latin-American Spanish translation)
+ *	2016 "seb-d59" (Check override instruction and French translation)  <https://www.waze.com/forum/memberlist.php?mode=viewprofile&u=16863068>
  */
 
 /*jshint eqnull:true, nonew:true, nomen:true, curly:true, latedef:true, unused:strict, noarg:true, loopfunc:true */
@@ -37,7 +40,7 @@ function run_ja() {
 	/*
 	 * First some variable and enumeration definitions
 	 */
-	var junctionangle_version = "1.13-devel";
+	var junctionangle_version = "1.13.3";
 
 	var junctionangle_debug = 1;	//0: no output, 1: basic info, 2: debug 3: verbose debug, 4: insane debug
 
@@ -47,13 +50,18 @@ function run_ja() {
 	var U_TURN_ANGLE = 168.24;		//U-Turn angle based on map experiments.
 	var GRAY_ZONE = 0.5;			//Gray zone angle intended to prevent from irregularities observed on map.
 	var OVERLAPPING_ANGLE = 0.666;	//Experimentally measured overlapping angle.
-
+	
+	var iconOverride = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAYJMDYlJpsaAAAAB3RFWHRBdXRob3IAqa7MSAAAADt0RVh0RGVzY3JpcHRpb24ACnxoYXJkY29weXwyMDE2LzEyLzA2IDEwOjQ4OjU0CmE1NzMxNTUKWTcwMDU5ODQx4rUkAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAd0RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC45bDN+TgAAAtBJREFUSEu1Vk1rE1EU7X9p6wcKunAbNy5EFIpCF1o3WcVNFpJKGatUhFRsRJ2FZuPHollVpaOLIDogFDTjJqt0E5QOBAass+ksmklae7z3zUffm5mkoeKBQ/LuvHfOvHvffckYgP/OzGCS5vwJbD8ZT3GzMgHz9jGakr0uYmaQ2bl3HfaDIynh7vJFdF/kUvGf5XFalq2VGewtnY8Xs+BO8xX+dBr0SIK/JWL8bPvZqXg+IaWXCsgG/S/3hdiBoDm994V43eqsmkLFoP/wSjCR3iz15iNg98eneFeEtMn3ucvxm+xtrlPocBBGoQ5BNfk2HxS533jKD/8JrMFa724GaYtNhDttdaQaEDxLh1Zrwg3HMva2OspuFBNR6EFwTGgXdLTCIdnANnXk8xTzw5CE3sdbqknjTpCqgcUWBjnkcqGJZ6E8lYduufBaZLSwRpYqdtffCs3G3ePBLjaXwoLTNmO4TRjVKqrVCorCYN/EtW14Xgv6TAGG7cEqT6PWDpZF4BdWTHjAlOHWS6GwTDbx0V4pIE+qvlXBNH16awso1RPVodqy5i/agGoiFX2wCcGj9JXqcJ06ijpFKGVJE24D1txYnFTTJddksIkLU5uCZlI9TA0Fw4FTL6JEYxmpmnyeOyoCao/4lHePaKNeOieZBPDaBkp8sui5UdBgJirPJ5U1V2dPBiZMDvD9kw0nNIrSZaGi1dB0PbRrBcwkq07g25o1CYlmJPK1kA0HZsWAHY7gtmCU88jrVqohxc1MWlwGwr4JUxg9Pz1a1ztNmK10v4tuJ41oF0zFJDoAvQ83aHg4+CtXhUb30Rkepk2Yv+knlSf5b66pzXkA+Mh2a5fE2u3HQ35PIkZGvO2d5msKDUdUgywDpjKQyU0ULey+PCt2ttPQxcFg8neORfkX86QUyUwFkozqNIwbixM0NXs9MzM4jF/nJ6mLD/4btE+M/QUlR+FS5zGpugAAAABJRU5ErkJggg==";
+  //var fa = window.require('fontawesome');
+          
 	var ja_routing_type = {
 		BC: "junction_none",
 		KEEP: "junction_keep",
 		KEEP_LEFT: "junction_keep_left",
 		KEEP_RIGHT: "junction_keep_right",
 		TURN: "junction_turn",
+		TURN_LEFT: "junction_turn_left",
+		TURN_RIGHT: "junction_turn_right",
 		EXIT: "junction_exit",
 		EXIT_LEFT: "junction_exit_left",
 		EXIT_RIGHT: "junction_exit_right",
@@ -62,7 +70,18 @@ function run_ja() {
 		NO_TURN: "junction_no_turn",
 		NO_U_TURN: "junction_no_u_turn",
 		ROUNDABOUT: "junction_roundabout",
-		ROUNDABOUT_EXIT: "junction_roundabout_exit"
+		ROUNDABOUT_EXIT: "junction_roundabout_exit",
+		
+		OverrideBC: "Override_none",
+		OverrideCONTINUE: "Override_continue",
+		OverrideKEEP_LEFT: "Override_keep_left",
+		OverrideKEEP_RIGHT: "Override_keep_right",
+		OverrideTURN_LEFT: "Override_turn_left",
+		OverrideTURN_RIGHT: "Override_turn_right",
+		OverrideEXIT: "Override_exit",
+		OverrideEXIT_LEFT: "Override_exit_left",
+		OverrideEXIT_RIGHT: "Override_exit_right",
+		OverrideU_TURN: "Override_u_turn"
 	};
 
 	var ja_road_type = {
@@ -105,7 +124,9 @@ function run_ja() {
 		defaultOn: { elementType: "checkbox", elementId: "_jaCbShowLayer", defaultValue: true },
 		angleMode: { elementType: "select", elementId: "_jaSelAngleMode", defaultValue: "aDeparture", options: ["aAbsolute", "aDeparture"]},
 		angleDisplay: { elementType: "select", elementId: "_jaSelAngleDisplay", defaultValue: "displayFancy", options: ["displayFancy", "displaySimple"]},
-		angleDisplayArrows: { elementType: "select", elementId: "_jaSelAngleDisplayArrows", defaultValue: "<>", options: ["<>", "⇦⇨", "⇐⇒", "←→", "⇐⇒⇖⇗", "←→↖↗"]},
+		angleDisplayArrows: { elementType: "select", elementId: "_jaSelAngleDisplayArrows", defaultValue: "<>", options: ["<>", "⇦⇨", "⇐⇒", "←→", "⇐⇒⇖⇗⇑", "←→↖↗↑"]},
+		override: { elementType: "checkbox", elementId: "_jaCbOverride", defaultValue: false, group: "guess" },
+		overrideAngles: { elementType: "checkbox", elementId: "_jaCboverrideAngles", defaultValue: false, group: "override" },
 		guess: { elementType: "checkbox", elementId: "_jaCbGuessRouting", defaultValue: true },
 		noInstructionColor: { elementType: "color", elementId: "_jaTbNoInstructionColor", defaultValue: "#ffffff", group: "guess"},
 		keepInstructionColor: { elementType: "color", elementId: "_jaTbKeepInstructionColor", defaultValue: "#cbff84", group: "guess"},
@@ -129,7 +150,8 @@ function run_ja() {
 		left: function() { return this.get(0); },
 		right: function() { return this.get(1); },
 		left_up: function() { return this.get(2); },
-		right_up: function() { return this.get(3); }
+		right_up: function() { return this.get(3); },
+		up: function() { return this.get(4); }
 	};
 
 	/*
@@ -377,7 +399,26 @@ function run_ja() {
 		} else {
 			ja_log("Oh, nice.. We already had a layer?", 3);
 		}
-
+		
+		//----- layer switcher
+    if (document.location.hostname == "beta.waze.com"){
+      var togglers = document.querySelector('.togglers');
+      var newToggler = document.createElement('li');
+      newToggler.innerHTML = '<div class="controls-container toggler">\
+                                  <input class="layer-switcher-item_junction_angles toggle" id="layer-switcher-item_junction_angles" type="checkbox">\
+                                  <label for="layer-switcher-item_junction_angles">\
+                                    <span class="label-text">'+ja_getMessage("name")+'</span>\
+                                  </label>\
+                                </div>';
+      togglers.appendChild(newToggler);
+      
+      var toggler = document.getElementById('layer-switcher-item_junction_angles');
+      toggler.checked = ja_getOption("defaultOn");
+      toggler.addEventListener('click', function(e) {
+          ja_mapLayer.setVisibility(e.target.checked);
+      });
+    }
+    
 		ja_apply();
 		ja_calculate();
 	}
@@ -450,6 +491,55 @@ function run_ja() {
 		if(!ja_is_turn_allowed(s_in, node, s_out[s_out_id])) {
 			ja_log("Turn is disallowed!", 2);
 			return ja_routing_type.NO_TURN;
+		}
+
+		//seb-d59:
+		//Check override instruction
+		if (ja_getOption("override")){
+			var WazeModelGraphTurnData = window.require("Waze/Model/Graph/TurnData");
+			var turn = new WazeModelGraphTurnData();
+			turn = window.Waze.model.getTurnGraph().getTurnThroughNode(node, window.Waze.model.segments.get(s_in_id), window.Waze.model.segments.get(s_out_id));
+			var opcode = turn.getTurnData().getInstructionOpcode();
+			switch (opcode) {
+				case "NONE":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideBC;
+					break;
+				case "CONTINUE":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideCONTINUE;
+					break;
+				case "TURN_LEFT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideTURN_LEFT;
+					break;
+				case "TURN_RIGHT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideTURN_RIGHT;
+					break;
+				case "KEEP_LEFT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideKEEP_LEFT;
+					break;
+				case "KEEP_RIGHT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideKEEP_RIGHT;
+					break;
+				case "EXIT_LEFT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideEXIT_LEFT;
+					break;
+				case "EXIT_RIGHT":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideEXIT_RIGHT;
+					break;
+				case "UTURN":
+					ja_log("turn opcode override is: " + opcode, 2);
+					return ja_routing_type.OverrideU_TURN;
+					break;
+				default:
+					ja_log("no turn opcode override", 2);
+			}
 		}
 
 		//Roundabout - no true instruction guessing here!
@@ -1172,6 +1262,12 @@ function run_ja() {
 				case ja_routing_type.TURN:
 					angleString = a > 0 ? ja_arrow.left() + angleString : angleString + ja_arrow.right();
 					break;
+				case ja_routing_type.TURN_LEFT:
+					angleString = ja_arrow.left() + angleString;
+					break;
+				case ja_routing_type.TURN_RIGHT:
+					angleString = angleString + ja_arrow.right();
+					break;
 				case ja_routing_type.EXIT:
 				case ja_routing_type.KEEP:
 					angleString = a > 0 ? ja_arrow.left_up() + angleString : angleString + ja_arrow.right_up();
@@ -1184,6 +1280,26 @@ function run_ja() {
 				case ja_routing_type.KEEP_RIGHT:
 					angleString += ja_arrow.right_up();
 					break;
+				//Override
+				case ja_routing_type.OverrideBC:
+					angleString = ja_getOption("overrideAngles") ? angleString : "";
+					break;
+				case ja_routing_type.OverrideCONTINUE:
+					angleString =  ja_arrow.up() + (ja_getOption("overrideAngles") ? angleString : "");
+					break;
+				case ja_routing_type.OverrideTURN_LEFT:
+					angleString = ja_arrow.left() + (ja_getOption("overrideAngles") ? angleString : "");
+					break;
+				case ja_routing_type.OverrideTURN_RIGHT:
+					angleString =  (ja_getOption("overrideAngles") ? angleString : "") + ja_arrow.right();
+					break;
+				case ja_routing_type.OverrideEXIT_LEFT:
+				case ja_routing_type.OverrideKEEP_LEFT:
+					angleString = ja_arrow.left_up() + (ja_getOption("overrideAngles") ? angleString : "");
+					break;
+				case ja_routing_type.OverrideEXIT_RIGHT:
+				case ja_routing_type.OverrideKEEP_RIGHT:
+					angleString = (ja_getOption("overrideAngles") ? angleString : "") + ja_arrow.right_up();
 				default:
 					ja_log("No extra format for junction type: " + ja_junction_type, 2);
 			}
@@ -1191,6 +1307,12 @@ function run_ja() {
 			switch(ja_junction_type) {
 				case ja_routing_type.TURN:
 					angleString = (a > 0 ? ja_arrow.left() : ja_arrow.right()) + "\n" + angleString;
+					break;
+				case ja_routing_type.TURN_LEFT:
+					angleString = ja_arrow.left() + "\n" + angleString;
+					break;
+				case ja_routing_type.TURN_RIGHT:
+					angleString = ja_arrow.right() + "\n" + angleString;
 					break;
 				case ja_routing_type.EXIT:
 				case ja_routing_type.KEEP:
@@ -1207,10 +1329,32 @@ function run_ja() {
 				case ja_routing_type.PROBLEM:
 					angleString = "?\n" + angleString;
 					break;
+			  //Override
+				case ja_routing_type.OverrideBC:
+					angleString = ja_getOption("overrideAngles") ? angleString : "";
+					break;
+				case ja_routing_type.OverrideCONTINUE:
+					angleString = ja_arrow.up() + (ja_getOption("overrideAngles") ?  ("\n" + angleString) : "");
+					break;
+				case ja_routing_type.OverrideTURN_LEFT:
+					angleString = ja_arrow.left() + (ja_getOption("overrideAngles") ?  ("\n" + angleString) : "");
+					break;
+				case ja_routing_type.OverrideTURN_RIGHT:
+					angleString = ja_arrow.right() + (ja_getOption("overrideAngles") ?  ("\n" + angleString) : "");
+					break;
+				case ja_routing_type.OverrideEXIT_LEFT:
+				case ja_routing_type.OverrideKEEP_LEFT:
+					angleString = ja_arrow.left_up() + (ja_getOption("overrideAngles") ?  ("\n" + angleString) : "");
+					break;
+				case ja_routing_type.OverrideEXIT_RIGHT:
+				case ja_routing_type.OverrideKEEP_RIGHT:
+					angleString = ja_arrow.right_up() + (ja_getOption("overrideAngles") ?  ("\n" + angleString) : "");
+					break;
 				default:
 					ja_log("No extra format for junction type: " + ja_junction_type, 2);
 			}
 		}
+		
 		var anglePoint = withRouting ?
 			new window.OpenLayers.Feature.Vector(
 				point,
@@ -1358,6 +1502,7 @@ function run_ja() {
 		return !restrictions.some(function(element) {
 			/*jshint bitwise: false*/
 			ja_log("Checking restriction " + element, 3);
+			//noinspection JSBitwiseOperatorUsage
 			var ret = element.allDay &&				//All day restriction
 				element.days === 127 &&				//Every week day
 				( element.vehicleTypes === -1 ||	//All vehicle types
@@ -1814,10 +1959,19 @@ function run_ja() {
 
 		//Enable|disable certain dependent settings
 		switch(e.id) {
+			case ja_settings.override.elementId:
+				Object.getOwnPropertyNames(ja_settings).forEach(function (a) {
+					var setting = ja_settings[a];
+					if(setting.group && setting.group === 'override') {
+						ja_log(a + ": " + !e.checked , 3);
+						disable_input(document.getElementById(setting.elementId), (!e.checked || e.disabled) );
+					}
+				});
+				break;
 			case ja_settings.guess.elementId:
 				Object.getOwnPropertyNames(ja_settings).forEach(function (a) {
 					var setting = ja_settings[a];
-					if(setting.group && setting.group === 'guess') {
+					if(setting.group && (setting.group === 'guess' || setting.group === 'override')) {
 						ja_log(a + ": " + !e.checked , 3);
 						disable_input(document.getElementById(setting.elementId), !e.checked);
 					}
@@ -2016,6 +2170,26 @@ function run_ja() {
 				}
 			});
 	}
+	function ja_get_styleOverride_rule(routingType, fillColorOption) {
+		return new window.OpenLayers.Rule(
+			{
+				filter: new window.OpenLayers.Filter.Comparison({
+					type: window.OpenLayers.Filter.Comparison.EQUAL_TO,
+					property: "ja_type",
+					value: routingType
+				}),
+				symbolizer: {
+			    pointRadius: 2+ parseInt(ja_getOption("pointSize"), 10) +
+						(parseInt(ja_getOption("decimals")) > 0 ? 4 * parseInt(ja_getOption("decimals")) : 0),
+					fontSize: (parseInt(ja_getOption("pointSize")) + (ja_getOption("overrideAngles") ? (-1) : 8)) + "px",
+					fillColor: ja_getOption(fillColorOption),
+					strokeColor: "#F68F23", //183800
+					strokeWidth: 5,
+					fontColor: ja_get_contrast_color(ja_getOption(fillColorOption))
+					
+				}
+			});
+	}
 
 	function ja_style() {
 		ja_log("Point radius will be: " + (parseInt(ja_getOption("pointSize"), 10)) +
@@ -2025,7 +2199,7 @@ function run_ja() {
 			strokeColor: "#ff9966",
 			strokeWidth: 2,
 			label: "${angle}",
-			fontWeight: "bold",
+    	fontWeight: "bold",
 			pointRadius: parseInt(ja_getOption("pointSize"), 10) +
 				(parseInt(ja_getOption("decimals")) > 0 ? 4 * parseInt(ja_getOption("decimals")) : 0),
 			fontSize: "10px"
@@ -2036,6 +2210,8 @@ function run_ja() {
 					}
 				}),
 				ja_get_style_rule(ja_routing_type.TURN, "turnInstructionColor"),
+				ja_get_style_rule(ja_routing_type.TURN_LEFT, "turnInstructionColor"),
+				ja_get_style_rule(ja_routing_type.TURN_RIGHT, "turnInstructionColor"),
 				ja_get_style_rule(ja_routing_type.BC, "noInstructionColor"),
 				ja_get_style_rule(ja_routing_type.KEEP, "keepInstructionColor"),
 				ja_get_style_rule(ja_routing_type.KEEP_LEFT, "keepInstructionColor"),
@@ -2049,6 +2225,18 @@ function run_ja() {
 				ja_get_style_rule(ja_routing_type.ROUNDABOUT_EXIT, "exitInstructionColor"),
 				ja_get_style_rule(ja_routing_type.U_TURN, "uTurnInstructionColor"),
 				ja_get_style_rule(ja_routing_type.NO_U_TURN, "problemColor"),
+
+				ja_get_styleOverride_rule(ja_routing_type.OverrideTURN_LEFT, "turnInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideTURN_RIGHT, "turnInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideBC, "noInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideCONTINUE, "noInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideKEEP_LEFT, "keepInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideKEEP_RIGHT, "keepInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideEXIT, "exitInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideEXIT_LEFT, "exitInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideEXIT_RIGHT, "exitInstructionColor"),
+				ja_get_styleOverride_rule(ja_routing_type.OverrideU_TURN, "uTurnInstructionColor"),
+				
 
 				new window.OpenLayers.Rule(
 					{
@@ -2106,7 +2294,9 @@ function run_ja() {
 					angleDisplayArrows: "Direction arrows",
 					displayFancy: "Fancy",
 					displaySimple: "Simple",
-					guess: "Estimate routing instructions",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Estimate routing instructions",
 					noInstructionColor: "Color for best continuation",
 					keepInstructionColor: "Color for keep prompt",
 					exitInstructionColor: "Color for exit prompt",
@@ -2142,7 +2332,9 @@ function run_ja() {
 					angleDisplayArrows: "Směrové šipky",
 					displayFancy: "Zdobný",
 					displaySimple: "Jednoduchý",
-					guess: "Odhadovat navigační hlášky",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Odhadovat navigační hlášky",
 					noInstructionColor: "Bez hlášení",
 					keepInstructionColor: "\"Držte se/Zůstaňte\"",
 					exitInstructionColor: "\"Sjeďte\"",
@@ -2178,7 +2370,9 @@ function run_ja() {
 					angleDisplayArrows: "Suuntanuolet",
 					displayFancy: "Nätti",
 					displaySimple: "Yksinkertainen",
-					guess: "Arvioi reititysohjeet",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Arvioi reititysohjeet",
 					noInstructionColor: "ohjeeton \"Suora\"-väri",
 					keepInstructionColor: "\"Pysy vasemmalla/oikealla\"-ohjeen väri",
 					exitInstructionColor: "\"Poistu\"-ohjeen väri",
@@ -2210,7 +2404,9 @@ function run_ja() {
 					displayFancy: "Dwuliniowy",
 					displaySimple: "Prosty",
 					angleDisplayArrows: "Strzałki kierunków",
-					guess: "Szacuj komunikaty trasy",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Szacuj komunikaty trasy",
 					noInstructionColor: "Kolor najlepszej kontynuacji",
 					keepInstructionColor: "Kolor dla \"kieruj się\"",
 					exitInstructionColor: "Kolor dla \"zjedź\"",
@@ -2243,7 +2439,9 @@ function run_ja() {
 					angleDisplayArrows: "- стрелки направлений",
 					displayFancy: "Модный",
 					displaySimple: "Простой",
-					guess: "Ожидаемые подсказки",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Ожидаемые подсказки",
 					noInstructionColor: "- нет подсказки",
 					keepInstructionColor: "- держитесь",
 					exitInstructionColor: "- съезд",
@@ -2279,7 +2477,9 @@ function run_ja() {
 					angleDisplayArrows: "Riktningspilar",
 					displayFancy: "Grafisk",
 					displaySimple: "Simpel",
-					guess: "Gissa navigeringsinstruktioner",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Gissa navigeringsinstruktioner",
 					noInstructionColor: "Färg för \"ingen instruktion\"",
 					keepInstructionColor: "Färg för \"håll höger/vänster\"-instruktion",
 					exitInstructionColor: "Färg för \"ta av\"-instruktion",
@@ -2297,6 +2497,82 @@ function run_ja() {
 					pointSize: "Cirkelns basstorlek"
 				});
 				break;
+
+      //French (Francais)
+			case 'fr':
+				set_trans({
+			    name: "Junction Angle Info",
+			    settingsTitle: "Paramètres de Junction Angle Info",
+			    defaultOn: "Activer au démarrage",
+			    angleMode: "Mode Angle",
+			    aAbsolute: "Absolu",
+			    aDeparture: "Départ",
+			    angleDisplay: "Style d'affichage d'Angles",
+			    angleDisplayArrows: "Flèches de Direction",
+			    displayFancy: "Fancy",
+			    displaySimple: "Simple",
+			    override: "Contrôler les \"overrides instruction\"",
+			    overrideAngles: "Afficher les angles des \"overrides\" actives",
+			    guess: "Estimer les instructions routage",
+			    noInstructionColor: "Couleur pour tout droit",
+			    keepInstructionColor: "Couleur pour serrez",
+			    exitInstructionColor: "Couleur pour sortez",
+			    turnInstructionColor: "Couleur pour tournez",
+			    uTurnInstructionColor: "Couleur pour demi-tour",
+			    noTurnColor: "Couleur des virages interdits",
+			    problemColor: "Couleur des angles à éviter",
+			    roundaboutOverlayDisplay: "Surligner les rond-point",
+			    rOverNever: "Jamais",
+			    rOverSelected: "Sélectionné",
+			    rOverAlways: "Toujours",
+			    roundaboutOverlayColor: "Couleur de surlignage rond-point",
+			    roundaboutColor: "Couleur pour les ronds-points anormaux",
+			    decimals: "Nombre de decimales",
+			    pointSize: "Taille des bulles",
+			    resetToDefault: "Réinitialiser par défaut",
+			    
+			    roundaboutnav: "WIKI: Rond-point (en)",
+			    ghissues: "JAI Reporter un problème"
+		    });
+				break;
+			//Latin-American Spanish (español latinoamericano)
+			case 'es-419':
+				set_trans({
+					name: "Información en Ángulos de Intersección (JAI)",
+					settingsTitle: "Configuración de Información en Ángulos",
+					resetToDefault: "Limpiar configuración",
+					defaultOn: "Activo al iniciar",
+					aAbsolute: "Absoluto",
+					aDeparture: "Salida",
+					angleMode: "Modo de ángulos",
+					angleDisplay: "Estilo para mostrar",
+					angleDisplayArrows: "Flechas de dirección",
+					displayFancy: "Lujoso",
+					displaySimple: "Simple",
+					override: "Check \"override instruction\"",
+			    overrideAngles: "Show angles of \"override instruction\"",
+			    guess: "Estimar instrucciones de giro",
+					noInstructionColor: "Sin instrucción",
+					keepInstructionColor: "\"Mantente\"",
+					exitInstructionColor: "\"Sale\"",
+					turnInstructionColor: "\"Gira\"",
+					uTurnInstructionColor: "\"Gira en U\"",
+					noTurnColor: "Giros deshabilitados",
+					problemColor: "Ángulos a evitar",
+					roundaboutColor: "Rotondas anormales",
+					roundaboutOverlayColor: "Rotondas",
+					roundaboutOverlayDisplay: "Mostrar rotondas",
+					rOverNever: "Nunca",
+					rOverSelected: "Seleccionadas",
+					rOverAlways: "Siempre",
+					decimals: "Decimales",
+					pointSize: "Tamaño del texto",
+					
+					roundaboutnav: "WIKI: Rotondas",
+					ghissues: "Seguimiento de problemas"
+				});
+			break;
+
 		}
 	}
 
