@@ -4,7 +4,7 @@
 // @description   Show the angle between two selected (and connected) segments
 // @include       /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor\/.*$/
 // @updateURL     https://github.com/milkboy/WME-ja/raw/master/wme_junctionangle.user.js
-// @version       1.13.3
+// @version       1.13.4
 // @grant         none
 // @copyright     2016 Michael Wikberg <waze@wikberg.fi>
 // @license       CC-BY-NC-SA
@@ -25,7 +25,7 @@
  *	2016 Sergey Kuznetsov "WazeRus" <sergey@izhevsk.pro> (Russian translation)
  *	2016 "MajkiiTelini" <?> Czech translation
  *	2016 "witoco" <?> (Latin-American Spanish translation)
- *	2016 "seb-d59" (Check override instruction and French translation)  <https://www.waze.com/forum/memberlist.php?mode=viewprofile&u=16863068>
+ *	2017 "seb-d59" (Check override instruction and French translation)  <https://www.waze.com/forum/memberlist.php?mode=viewprofile&u=16863068>
  */
 
 /*jshint eqnull:true, nonew:true, nomen:true, curly:true, latedef:true, unused:strict, noarg:true, loopfunc:true */
@@ -40,7 +40,7 @@ function run_ja() {
 	/*
 	 * First some variable and enumeration definitions
 	 */
-	var junctionangle_version = "1.13.3";
+	var junctionangle_version = "1.13.4";
 
 	var junctionangle_debug = 1;	//0: no output, 1: basic info, 2: debug 3: verbose debug, 4: insane debug
 
@@ -201,7 +201,7 @@ function run_ja() {
 
 		//Recalculate on zoom end also
 		window.Waze.map.events.register("zoomend", null, ja_calculate);
-
+		
 		ja_load();
 		ja_loadTranslations();
 
@@ -385,7 +385,7 @@ function run_ja() {
 			});
 
 			//Set visibility according to user preference
-			ja_mapLayer.setVisibility(ja_getOption("defaultOn"));
+			//ja_mapLayer.setVisibility(ja_getOption("defaultOn"));
 
 			window.Waze.map.addLayer(ja_mapLayer);
 			ja_log("version " + junctionangle_version + " loaded.", 0);
@@ -400,29 +400,75 @@ function run_ja() {
 			ja_log("Oh, nice.. We already had a layer?", 3);
 		}
 		
-		//----- layer switcher
-    if (document.location.hostname == "beta.waze.com"){
-      var togglers = document.querySelector('.togglers');
-      var newToggler = document.createElement('li');
-      newToggler.innerHTML = '<div class="controls-container toggler">\
+		
+		
+		// script group's toggler----------------
+  	var togglers = document.querySelector('.togglers');
+          
+    // if script group dosn't exist we create them.
+    if (document.querySelector('.layer-switcher-group_scripts') === null)
+    {
+      var newScriptsToggler = document.createElement('li');
+      newScriptsToggler.className = 'group';
+      newScriptsToggler.innerHTML = '<div class="controls-container toggler">\
+																		    <input class="layer-switcher-group_scripts toggle" id="layer-switcher-group_scripts" type="checkbox">\
+																		    <label for="layer-switcher-group_scripts">\
+																		    <span class="label-text">Scripts</span>\
+																		    </label>\
+																			</div>\
+																			<ul class="children">\
+										                  </ul>';	
+      togglers.appendChild(newScriptsToggler);
+  
+    }
+    
+    // JAI toggler
+    var newToggler = document.createElement('li');
+    newToggler.innerHTML = '<div class="controls-container toggler">\
                                   <input class="layer-switcher-item_junction_angles toggle" id="layer-switcher-item_junction_angles" type="checkbox">\
                                   <label for="layer-switcher-item_junction_angles">\
                                     <span class="label-text">'+ja_getMessage("name")+'</span>\
                                   </label>\
                                 </div>';
-      togglers.appendChild(newToggler);
       
-      var toggler = document.getElementById('layer-switcher-item_junction_angles');
-      toggler.checked = ja_getOption("defaultOn");
-      toggler.addEventListener('click', function(e) {
-          ja_mapLayer.setVisibility(e.target.checked);
-      });
-    }
     
+    var groupScripts = document.querySelector('.layer-switcher-group_scripts').parentNode.parentNode;
+    var newScriptsChildren = groupScripts.getElementsByClassName("children")[0];
+    // insert JAI toggler at the end of children of "group_scripts"
+    newScriptsChildren.appendChild(newToggler); 
+    
+      
+    var toggler = document.getElementById('layer-switcher-item_junction_angles');
+    var groupToggler = document.getElementById('layer-switcher-group_scripts');
+    
+    // restore old state
+    groupToggler.checked = (typeof(localStorage.groupScriptsToggler) !=="undefined" ?
+    	JSON.parse(localStorage.groupScriptsToggler) : true);	 
+    
+    //Set toggler according to user preference
+    toggler.checked = ja_getOption("defaultOn");
+    toggler.disabled = !groupToggler.checked;
+    
+    // togglers events
+    toggler.addEventListener('click', function(e) {
+        ja_mapLayer.setVisibility(e.target.checked);
+    });
+    
+    groupToggler.addEventListener('click', function(e) {
+        toggler.disabled = !e.target.checked;
+        ja_mapLayer.setVisibility(toggler.checked ? e.target.checked : toggler.checked);
+        localStorage.setItem('groupScriptsToggler', e.target.checked);
+    });
+    
+    //Set visibility according JAI's toggler and scripts group's toggler state
+    ja_mapLayer.setVisibility(toggler.checked ? groupToggler.checked : toggler.checked);
+  
 		ja_apply();
 		ja_calculate();
 	}
 
+		
+	
 	/**
 	 *
 	 * @param node Junction node
