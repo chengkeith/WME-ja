@@ -2584,7 +2584,7 @@ function run_ja() {
 			//Latin-American Spanish (español latinoamericano)
 			case 'es-419':
 				set_trans({
-					name: "Información en Ángulos de Intersección (JAI)",
+					name: "Información de Junta de Ángulos(JAI)",
 					settingsTitle: "Configuración de Información en Ángulos",
 					resetToDefault: "Limpiar configuración",
 					defaultOn: "Activo al iniciar",
@@ -2595,8 +2595,8 @@ function run_ja() {
 					angleDisplayArrows: "Flechas de dirección",
 					displayFancy: "Lujoso",
 					displaySimple: "Simple",
-					override: "Check \"override instruction\"",
-			    overrideAngles: "Show angles of \"override instruction\"",
+					override: "Checa \"intrucciones navegación\"",
+			    overrideAngles: "Muestra anulos de \"intrucciones navegación\"activas",
 			    guess: "Estimar instrucciones de giro",
 					noInstructionColor: "Sin instrucción",
 					keepInstructionColor: "\"Mantente\"",
